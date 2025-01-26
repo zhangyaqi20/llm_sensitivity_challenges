@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hateXplain",
+        "data_split": "dev",
+        "label2index": {
+            "hatespeech": 0,
+            "normal": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 154,
+        "label_size": {
+            "hatespeech": 47,
+            "normal": 63,
+            "offensive": 44
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hno-temp0.3-top_p=0.9-seed42",
+        "prompt_template": "\nIs this text hatespeech, normal, or offensive?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- normal\n- offensive\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hateXplain/dev/hateXplain_dev_multi_opt-iml-1.3b_optiml-hno-temp0.3-top_p=0.9-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hateXplain/dev/hateXplain_dev_multi_opt-iml-1.3b_optiml-hno-temp0.3-top_p=0.9-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.3772674633236069,
+        "f1score_label": {
+            "hatespeech": 0.41758241758241754,
+            "normal": 0.4878048780487806,
+            "offensive": 0.22641509433962262
+        },
+        "acc_score": 0.42207792207792205,
+        "bias": {
+            "hatespeech": -0.06382978723404255,
+            "normal": 0.6031746031746031,
+            "offensive": -0.7954545454545454
+        },
+        "bias_agg": 0.48748631195439707
+    }
+}

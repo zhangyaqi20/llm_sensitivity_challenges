@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "hatEval",
+        "data_split": "dev",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 90,
+        "label_size": {
+            "no": 52,
+            "yes": 38
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_hatespeech_nh-temp0.3-top_p=0.7-seed42",
+        "prompt_template": "\nIs this text hatespeech?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.3,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hatEval/dev/hatEval_dev_bin_opt-iml-1.3b_optiml_hatespeech_nh-temp0.3-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hatEval/dev/hatEval_dev_bin_opt-iml-1.3b_optiml_hatespeech_nh-temp0.3-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.6213942307692308,
+        "f1score_label": {
+            "no": 0.78125,
+            "yes": 0.46153846153846156
+        },
+        "acc_score": 0.6888888888888889,
+        "bias": {
+            "no": 0.46153846153846156,
+            "yes": -0.631578947368421
+        },
+        "bias_agg": 0.5465587044534412
+    }
+}

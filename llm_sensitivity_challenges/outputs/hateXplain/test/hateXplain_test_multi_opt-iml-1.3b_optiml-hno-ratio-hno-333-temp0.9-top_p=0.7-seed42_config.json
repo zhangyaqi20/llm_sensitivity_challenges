@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hateXplain",
+        "data_split": "test",
+        "label2index": {
+            "hatespeech": 0,
+            "normal": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 1924,
+        "label_size": {
+            "hatespeech": 594,
+            "normal": 782,
+            "offensive": 548
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hno-ratio-hno-333-temp0.9-top_p=0.7-seed42",
+        "prompt_template": "\nConsider that the post originates from a dataset where 33.3% labels are hatespeech, 33.3% labels are normal, and 33.3% labels are offensive.\nIs this text hatespeech, normal, or offensive?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- normal\n- offensive\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_opt-iml-1.3b_optiml-hno-ratio-hno-333-temp0.9-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_opt-iml-1.3b_optiml-hno-ratio-hno-333-temp0.9-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 0.998960498960499,
+        "f1score": 0.37674855832509735,
+        "f1score_label": {
+            "hatespeech": 0.22752808988764045,
+            "normal": 0.4803725881570193,
+            "offensive": 0.4223449969306323
+        },
+        "acc_score": 0.40894901144641,
+        "bias": {
+            "hatespeech": -0.7972972972972973,
+            "normal": -0.07800511508951406,
+            "offensive": 0.9726277372262774
+        },
+        "bias_agg": 0.6159767165376963
+    }
+}

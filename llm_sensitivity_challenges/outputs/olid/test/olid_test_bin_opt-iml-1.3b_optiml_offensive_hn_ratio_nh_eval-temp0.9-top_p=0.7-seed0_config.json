@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "olid",
+        "data_split": "test",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 860,
+        "label_size": {
+            "no": 620,
+            "yes": 240
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_offensive_hn_ratio_nh_eval-temp0.9-top_p=0.7-seed0",
+        "prompt_template": "\nConsider that the text originates from a dataset where 72.1% labels are non-offensive and 27.9% labels are offensive.\nIs this text offensive?\n\" {text}\n\"\n\nOPTIONS:\n- yes\n- no\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 0
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/olid/test/olid_test_bin_opt-iml-1.3b_optiml_offensive_hn_ratio_nh_eval-temp0.9-top_p=0.7-seed0_predictions.json",
+        "confusion_matrix_filename": "outputs_new/olid/test/olid_test_bin_opt-iml-1.3b_optiml_offensive_hn_ratio_nh_eval-temp0.9-top_p=0.7-seed0_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.45708843537414967,
+        "f1score_label": {
+            "no": 0.8421768707482994,
+            "yes": 0.07200000000000001
+        },
+        "acc_score": 0.7302325581395349,
+        "bias": {
+            "no": 0.3709677419354839,
+            "yes": -0.9583333333333334
+        },
+        "bias_agg": 0.6646505376344086
+    }
+}

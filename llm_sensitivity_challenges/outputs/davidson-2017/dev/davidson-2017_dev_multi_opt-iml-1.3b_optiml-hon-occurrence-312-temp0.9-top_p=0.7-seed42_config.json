@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "davidson-2017",
+        "data_split": "dev",
+        "label2index": {
+            "hatespeech": 0,
+            "offensive": 1,
+            "normal": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 298,
+        "label_size": {
+            "hatespeech": 17,
+            "offensive": 231,
+            "normal": 50
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hon-occurrence-312-temp0.9-top_p=0.7-seed42",
+        "prompt_template": "\nConsider that the post originates from a dataset where offensive occurs more frequently than hatespeech, offensive occurs more frequently than normal, and normal occurs more frequently than hatespeech.\nIs this text hatespeech, offensive, or normal?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- offensive\n- normal\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/davidson-2017/dev/davidson-2017_dev_multi_opt-iml-1.3b_optiml-hon-occurrence-312-temp0.9-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/davidson-2017/dev/davidson-2017_dev_multi_opt-iml-1.3b_optiml-hon-occurrence-312-temp0.9-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.4392089360123917,
+        "f1score_label": {
+            "hatespeech": 0.12121212121212122,
+            "offensive": 0.816414686825054,
+            "normal": 0.38
+        },
+        "acc_score": 0.7046979865771812,
+        "bias": {
+            "hatespeech": -0.058823529411764705,
+            "offensive": 0.004329004329004329,
+            "normal": 0.0
+        },
+        "bias_agg": 0.021050844580256346
+    }
+}

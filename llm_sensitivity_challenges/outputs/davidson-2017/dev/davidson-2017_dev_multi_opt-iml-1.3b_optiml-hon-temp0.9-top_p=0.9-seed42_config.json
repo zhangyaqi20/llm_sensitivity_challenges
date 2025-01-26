@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "davidson-2017",
+        "data_split": "dev",
+        "label2index": {
+            "hatespeech": 0,
+            "offensive": 1,
+            "normal": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 298,
+        "label_size": {
+            "hatespeech": 17,
+            "offensive": 231,
+            "normal": 50
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hon-temp0.9-top_p=0.9-seed42",
+        "prompt_template": "\nIs this text hatespeech, offensive, or normal?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- offensive\n- normal\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.9,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/davidson-2017/dev/davidson-2017_dev_multi_opt-iml-1.3b_optiml-hon-temp0.9-top_p=0.9-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/davidson-2017/dev/davidson-2017_dev_multi_opt-iml-1.3b_optiml-hon-temp0.9-top_p=0.9-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 0.9966442953020134,
+        "f1score": 0.3951889553052517,
+        "f1score_label": {
+            "hatespeech": 0.1842105263157895,
+            "offensive": 0.5892351274787535,
+            "normal": 0.41212121212121217
+        },
+        "acc_score": 0.4882154882154882,
+        "bias": {
+            "hatespeech": 2.4705882352941178,
+            "offensive": -0.4652173913043478,
+            "normal": 1.3
+        },
+        "bias_agg": 1.4119352088661552
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "hatEval",
+        "data_split": "test",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 1000,
+        "label_size": {
+            "no": 573,
+            "yes": 427
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_hatespeech_nh_occurrence_same-temp0.9-top_p=0.7-seed0",
+        "prompt_template": "\nConsider that the text originates from a dataset where non-hatespeech and hatespeech occur with the same frequency.\nIs this text hatespeech?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 0
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hatEval/test/hatEval_test_bin_opt-iml-1.3b_optiml_hatespeech_nh_occurrence_same-temp0.9-top_p=0.7-seed0_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hatEval/test/hatEval_test_bin_opt-iml-1.3b_optiml_hatespeech_nh_occurrence_same-temp0.9-top_p=0.7-seed0_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5817264065335752,
+        "f1score_label": {
+            "no": 0.7456896551724137,
+            "yes": 0.41776315789473684
+        },
+        "acc_score": 0.646,
+        "bias": {
+            "no": 0.4293193717277487,
+            "yes": -0.5761124121779859
+        },
+        "bias_agg": 0.5027158919528674
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hateXplain",
+        "data_split": "test",
+        "label2index": {
+            "hatespeech": 0,
+            "normal": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 1924,
+        "label_size": {
+            "hatespeech": 594,
+            "normal": 782,
+            "offensive": 548
+        }
+    },
+    "prompt": {
+        "prompt_type": "llama-noh-occurrence-312-temp0.1-top_p=1.0-seed0",
+        "prompt_template": "The following text originates from a dataset where \"NORMAL\" occurs more frequently than \"OFFENSIVE\", \"NORMAL\" occurs more frequently than \"HATESPEECH\", and \"HATESPEECH\" occurs more frequently than \"OFFENSIVE\".\nText: ``` {text}```\nClassify this text with \"NORMAL\" / \"OFFENSIVE\" / \"HATESPEECH\". Answer 0 for \"NORMAL\", 1 for \"OFFENSIVE\", and 2 for \"HATESPEECH\". The answer is ",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.LLAMA_2_CHAT_7B",
+        "do_sample": true,
+        "temperature": 0.1,
+        "top_p": 1.0,
+        "seed": 0
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_llama-2-7b-chat-hf_llama-noh-occurrence-312-temp0.1-top_p=1.0-seed0_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_llama-2-7b-chat-hf_llama-noh-occurrence-312-temp0.1-top_p=1.0-seed0_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5424932382307425,
+        "f1score_label": {
+            "hatespeech": 0.598438855160451,
+            "normal": 0.5765069551777434,
+            "offensive": 0.45253390435403285
+        },
+        "acc_score": 0.5379417879417879,
+        "bias": {
+            "hatespeech": -0.058922558922558925,
+            "normal": -0.3452685421994885,
+            "offensive": 0.5565693430656934
+        },
+        "bias_agg": 0.32025348139591364
+    }
+}

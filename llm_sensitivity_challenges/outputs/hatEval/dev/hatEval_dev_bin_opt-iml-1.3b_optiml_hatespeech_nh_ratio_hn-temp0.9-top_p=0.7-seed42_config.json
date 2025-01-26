@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "hatEval",
+        "data_split": "dev",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 90,
+        "label_size": {
+            "no": 52,
+            "yes": 38
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_hatespeech_nh_ratio_hn-temp0.9-top_p=0.7-seed42",
+        "prompt_template": "\nConsider that the text originates from a dataset where 42% labels are hatespeech and 58% labels are non-hatespeech.\nIs this text hatespeech?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hatEval/dev/hatEval_dev_bin_opt-iml-1.3b_optiml_hatespeech_nh_ratio_hn-temp0.9-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hatEval/dev/hatEval_dev_bin_opt-iml-1.3b_optiml_hatespeech_nh_ratio_hn-temp0.9-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.6370967741935484,
+        "f1score_label": {
+            "no": 0.7741935483870968,
+            "yes": 0.5
+        },
+        "acc_score": 0.6888888888888889,
+        "bias": {
+            "no": 0.38461538461538464,
+            "yes": -0.5263157894736842
+        },
+        "bias_agg": 0.45546558704453444
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "olid",
+        "data_split": "dev",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 133,
+        "label_size": {
+            "no": 89,
+            "yes": 44
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_offensive_nh-temp0.3-top_p=1.0-seed42",
+        "prompt_template": "\nIs this text offensive?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.3,
+        "top_p": 1.0,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/olid/dev/olid_dev_bin_opt-iml-1.3b_optiml_offensive_nh-temp0.3-top_p=1.0-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/olid/dev/olid_dev_bin_opt-iml-1.3b_optiml_offensive_nh-temp0.3-top_p=1.0-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5910147753693842,
+        "f1score_label": {
+            "no": 0.7939698492462312,
+            "yes": 0.3880597014925373
+        },
+        "acc_score": 0.6917293233082706,
+        "bias": {
+            "no": 0.23595505617977527,
+            "yes": -0.4772727272727273
+        },
+        "bias_agg": 0.3566138917262513
+    }
+}

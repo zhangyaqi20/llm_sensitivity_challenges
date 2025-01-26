@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hasoc-2019-multi",
+        "data_split": "dev",
+        "label2index": {
+            "hatespeech": 0,
+            "profane": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 114,
+        "label_size": {
+            "hatespeech": 58,
+            "profane": 33,
+            "offensive": 23
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hop-ratio-ohp-temp0.9-top_p=0.7-seed42",
+        "prompt_template": "\nConsider that the post originates from a dataset where 19.9% labels are offensive, 50.5% labels are hatespeech, and 29.5% labels are profane.\nIs this text hatespeech, offensive, or profane?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- offensive\n- profane\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hasoc-2019-multi/dev/hasoc-2019-multi_dev_multi_opt-iml-1.3b_optiml-hop-ratio-ohp-temp0.9-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hasoc-2019-multi/dev/hasoc-2019-multi_dev_multi_opt-iml-1.3b_optiml-hop-ratio-ohp-temp0.9-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.12404453306746428,
+        "f1score_label": {
+            "hatespeech": 0.03389830508474576,
+            "profane": 0.0,
+            "offensive": 0.3382352941176471
+        },
+        "acc_score": 0.21052631578947367,
+        "bias": {
+            "hatespeech": -0.9827586206896551,
+            "profane": -1.0,
+            "offensive": 3.9130434782608696
+        },
+        "bias_agg": 1.9652673663168416
+    }
+}

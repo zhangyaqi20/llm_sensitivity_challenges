@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "hasoc-2019",
+        "data_split": "test",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 1153,
+        "label_size": {
+            "no": 865,
+            "yes": 288
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_hof_nh_ratio_nh_55-temp0.9-top_p=0.7-seed42",
+        "prompt_template": "\nConsider that the text originates from a dataset where 50% labels are non-hatespeech-or-offensive and 50% labels are hatespeech-or-offensive.\nIs this text hatespeech or offensive?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hasoc-2019/test/hasoc-2019_test_bin_opt-iml-1.3b_optiml_hof_nh_ratio_nh_55-temp0.9-top_p=0.7-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hasoc-2019/test/hasoc-2019_test_bin_opt-iml-1.3b_optiml_hof_nh_ratio_nh_55-temp0.9-top_p=0.7-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5952533577533577,
+        "f1score_label": {
+            "no": 0.8539682539682539,
+            "yes": 0.3365384615384615
+        },
+        "acc_score": 0.7606244579358196,
+        "bias": {
+            "no": 0.18497109826589594,
+            "yes": -0.5555555555555556
+        },
+        "bias_agg": 0.3702633269107258
+    }
+}

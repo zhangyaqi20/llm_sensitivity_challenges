@@ -1,0 +1,47 @@
+{
+    "data": {
+        "data_name": "civil-comments",
+        "data_split": "dev",
+        "label2index": {
+            "no": 0,
+            "yes": 1
+        },
+        "label_col": "label",
+        "data_type": "bin",
+        "data_size": 361,
+        "label_size": {
+            "no": 332,
+            "yes": 29
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml_toxic_nh-temp0.5-top_p=1.0-seed42",
+        "prompt_template": "\nIs this comment toxic?\n\" {text}\n\"\n\nOPTIONS:\n- no\n- yes\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.5,
+        "top_p": 1.0,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/civil-comments/dev/civil-comments_dev_bin_opt-iml-1.3b_optiml_toxic_nh-temp0.5-top_p=1.0-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/civil-comments/dev/civil-comments_dev_bin_opt-iml-1.3b_optiml_toxic_nh-temp0.5-top_p=1.0-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5413680066502501,
+        "f1score_label": {
+            "no": 0.8691437802907915,
+            "yes": 0.21359223300970873
+        },
+        "acc_score": 0.775623268698061,
+        "bias": {
+            "no": -0.1355421686746988,
+            "yes": 1.5517241379310345
+        },
+        "bias_agg": 0.8436331533028666
+    }
+}

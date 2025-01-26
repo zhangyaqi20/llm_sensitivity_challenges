@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hasoc-2019-multi",
+        "data_split": "dev",
+        "label2index": {
+            "hatespeech": 0,
+            "profane": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 114,
+        "label_size": {
+            "hatespeech": 58,
+            "profane": 33,
+            "offensive": 23
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hpo-temp0.9-top_p=0.3-seed42",
+        "prompt_template": "\nIs this text hatespeech, profane, or offensive?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- profane\n- offensive\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.3,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hasoc-2019-multi/dev/hasoc-2019-multi_dev_multi_opt-iml-1.3b_optiml-hpo-temp0.9-top_p=0.3-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hasoc-2019-multi/dev/hasoc-2019-multi_dev_multi_opt-iml-1.3b_optiml-hpo-temp0.9-top_p=0.3-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.23909657320872277,
+        "f1score_label": {
+            "hatespeech": 0.4672897196261682,
+            "profane": 0.0,
+            "offensive": 0.25000000000000006
+        },
+        "acc_score": 0.3157894736842105,
+        "bias": {
+            "hatespeech": -0.15517241379310345,
+            "profane": -1.0,
+            "offensive": 1.826086956521739
+        },
+        "bias_agg": 0.9937531234382808
+    }
+}

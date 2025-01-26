@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hateXplain",
+        "data_split": "test",
+        "label2index": {
+            "hatespeech": 0,
+            "normal": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 1924,
+        "label_size": {
+            "hatespeech": 594,
+            "normal": 782,
+            "offensive": 548
+        }
+    },
+    "prompt": {
+        "prompt_type": "llama-noh-ratio-hon-333-temp0.1-top_p=1.0-seed42",
+        "prompt_template": "The following text originates from a dataset where 33.3% labels are \"HATESPEECH, 33.3% labels are \"OFFENSIVE\", and 33.3% labels are \"NORMAL\".\nText: ``` {text}```\nClassify this text with \"NORMAL\" / \"OFFENSIVE\" / \"HATESPEECH\". Answer 0 for \"NORMAL\", 1 for \"OFFENSIVE\", and 2 for \"HATESPEECH\". The answer is ",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.LLAMA_2_CHAT_7B",
+        "do_sample": true,
+        "temperature": 0.1,
+        "top_p": 1.0,
+        "seed": 42
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_llama-2-7b-chat-hf_llama-noh-ratio-hon-333-temp0.1-top_p=1.0-seed42_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_llama-2-7b-chat-hf_llama-noh-ratio-hon-333-temp0.1-top_p=1.0-seed42_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.5195889756758735,
+        "f1score_label": {
+            "hatespeech": 0.6337209302325582,
+            "normal": 0.6590361445783133,
+            "offensive": 0.2660098522167488
+        },
+        "acc_score": 0.567047817047817,
+        "bias": {
+            "hatespeech": 0.3164983164983165,
+            "normal": 0.12276214833759591,
+            "offensive": -0.5182481751824818
+        },
+        "bias_agg": 0.31916954667279807
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hateXplain",
+        "data_split": "test",
+        "label2index": {
+            "hatespeech": 0,
+            "normal": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 1924,
+        "label_size": {
+            "hatespeech": 594,
+            "normal": 782,
+            "offensive": 548
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hno-occurrence-same-temp0.9-top_p=0.7-seed21",
+        "prompt_template": "\nConsider that the post originates from a dataset where hatespeech, normal, and offensive occur with the same frequency.\nIs this text hatespeech, normal, or offensive?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- normal\n- offensive\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 21
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_opt-iml-1.3b_optiml-hno-occurrence-same-temp0.9-top_p=0.7-seed21_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hateXplain/test/hateXplain_test_multi_opt-iml-1.3b_optiml-hno-occurrence-same-temp0.9-top_p=0.7-seed21_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 0.998960498960499,
+        "f1score": 0.4219416745295348,
+        "f1score_label": {
+            "hatespeech": 0.41401273885350315,
+            "normal": 0.5542916235780766,
+            "offensive": 0.2975206611570248
+        },
+        "acc_score": 0.45525494276795003,
+        "bias": {
+            "hatespeech": -0.4114671163575042,
+            "normal": 0.47631241997439183,
+            "offensive": -0.23357664233576642
+        },
+        "bias_agg": 0.3737853928892208
+    }
+}

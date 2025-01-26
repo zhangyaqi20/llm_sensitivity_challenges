@@ -1,0 +1,51 @@
+{
+    "data": {
+        "data_name": "hasoc-2019-multi",
+        "data_split": "test",
+        "label2index": {
+            "hatespeech": 0,
+            "profane": 1,
+            "offensive": 2
+        },
+        "label_col": "label_multi",
+        "data_type": "multi",
+        "data_size": 288,
+        "label_size": {
+            "hatespeech": 124,
+            "profane": 93,
+            "offensive": 71
+        }
+    },
+    "prompt": {
+        "prompt_type": "optiml-hop-occurrence-same-temp0.9-top_p=0.7-seed0",
+        "prompt_template": "\nConsider that the post originates from a dataset where hatespeech, offensive, and profane occur with the same frequency.\nIs this text hatespeech, offensive, or profane?\n\" {text}\n\"\n\nOPTIONS:\n- hatespeech\n- offensive\n- profane\n\nAnswer:\n",
+        "text_placeholder": "{text}"
+    },
+    "llm": {
+        "model_name": "LLM.OPT_IML_1P3B",
+        "do_sample": true,
+        "temperature": 0.9,
+        "top_p": 0.7,
+        "seed": 0
+    },
+    "outputs": {
+        "predictions_filename": "outputs_new/hasoc-2019-multi/test/hasoc-2019-multi_test_multi_opt-iml-1.3b_optiml-hop-occurrence-same-temp0.9-top_p=0.7-seed0_predictions.json",
+        "confusion_matrix_filename": "outputs_new/hasoc-2019-multi/test/hasoc-2019-multi_test_multi_opt-iml-1.3b_optiml-hop-occurrence-same-temp0.9-top_p=0.7-seed0_confusionmatrix.png"
+    },
+    "metrics": {
+        "success_rate": 1.0,
+        "f1score": 0.13258636788048553,
+        "f1score_label": {
+            "hatespeech": 0.0,
+            "profane": 0.0,
+            "offensive": 0.39775910364145656
+        },
+        "acc_score": 0.2465277777777778,
+        "bias": {
+            "hatespeech": -0.9838709677419355,
+            "profane": -1.0,
+            "offensive": 3.028169014084507
+        },
+        "bias_agg": 1.6706799939421473
+    }
+}
